@@ -1,0 +1,22 @@
+.footer{
+    background-color: #E8A6A7;
+    color: #2A2A2A;
+    padding: 15px;
+}
+
+.tech{
+    line-height: 40px;
+}
+
+.iconWrapper{
+    padding: 5px;
+    font-size: 25px;
+}
+
+.iconWrapper svg{
+    display: initial;
+}
+
+.iconWrapper svg:hover{
+    color: white;
+}

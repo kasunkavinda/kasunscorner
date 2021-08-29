@@ -1,0 +1,22 @@
+.header1 h1 {
+  font-size: 100px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+}
+
+.header2 h2 {
+  font-size: 80px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  line-height: 0;
+}
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-bottom: 460px solid transparent;
+  border-left: 460px solid #e8a6a7;
+  z-index: -1;
+}
