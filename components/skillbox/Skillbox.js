@@ -3,7 +3,7 @@ function Skillbox() {
   return (
     <div>
       <h1 className={classses.skillboxheader}>Skills</h1>
-      <div className="relative pt-1 border" className={classses.skillbox}>
+      <div className={`relative pt-1 border ${classses.skillboxx}`}>
         <div>
           <div>
             <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
