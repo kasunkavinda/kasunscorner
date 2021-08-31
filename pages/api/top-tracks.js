@@ -8,6 +8,8 @@ export default async (_, res) => {
     artist: track.artists.map((_artist) => _artist.name).join(", "),
     songUrl: track.external_urls.spotify,
     title: track.name,
+    album: track.album.name,
+    albumImage: track.album.images[0].url,
   }));
   res.setHeader(
     "Cache-Control",

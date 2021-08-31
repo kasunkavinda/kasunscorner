@@ -6,7 +6,7 @@ function Spotifybox() {
     <div>
       <h1 className={classes.spotifyboxheader}>Love what I hear?</h1>
       <div className={`relative pt-1 border" ${classes.spotifybox}`}>
-        {/* <TopTracks />  */}
+        <TopTracks />
       </div>
     </div>
   );
