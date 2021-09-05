@@ -1,22 +1,26 @@
-.footer{
-    background-color: #E8A6A7;
-    color: #2A2A2A;
-    padding: 15px;
+.footer {
+  background-color: #e8a6a7;
+  color: #2a2a2a;
+  padding: 15px;
 }
 
-.tech{
-    line-height: 40px;
+.tech {
+  line-height: 40px;
 }
 
-.iconWrapper{
-    padding: 5px;
-    font-size: 25px;
+.iconWrapper {
+  padding: 5px;
+  font-size: 25px;
 }
 
-.iconWrapper svg{
-    display: initial;
+.iconWrapper a {
+  color: #2a2a2a;
 }
 
-.iconWrapper svg:hover{
-    color: white;
+.iconWrapper svg {
+  display: initial;
+}
+
+.iconWrapper svg:hover {
+  color: white;
 }

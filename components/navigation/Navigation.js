@@ -8,6 +8,9 @@ function Navigation() {
           <li>
             <Link href="/contact">Contact Me</Link>
           </li>
+          <li>
+            <Link href="/blog">Blog</Link>
+          </li>
         </ul>
       </nav>
     </header>

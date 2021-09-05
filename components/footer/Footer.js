@@ -11,14 +11,14 @@ function Footer() {
         </div>
         <div className="text-right">
           <span className={classes.iconWrapper}>
-            <Link href="https://github.com/kasunkavinda">
+            <a href="https://github.com/kasunkavinda">
               <FaGithub />
-            </Link>
+            </a>
           </span>
           <span className={classes.iconWrapper}>
-            <Link href="https://www.linkedin.com/in/kasun-kavinda/">
+            <a href="https://www.linkedin.com/in/kasun-kavinda/">
               <FaLinkedinIn />
-            </Link>
+            </a>
           </span>
         </div>
       </div>
