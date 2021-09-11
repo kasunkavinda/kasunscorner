@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { MongoClient } from "mongodb";
 import { FaLinkedinIn } from "react-icons/fa";
 
+const database_url = process.env.DATABBASE_URL;
+
 async function submitHandlerApi(endorsementData) {
   const response = await fetch("/api/endorse-me", {
     method: "POST",
@@ -16,9 +18,7 @@ async function submitHandlerApi(endorsementData) {
 }
 
 export async function getStaticProps() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://kasunkavinda:kasunkavinda123456@cluster0.oxj4i.mongodb.net/myPortfolio?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(database_url);
 
   const db = client.db();
   const myEndorsementDetailsCollection = db.collection("myEndorsementDetails");
