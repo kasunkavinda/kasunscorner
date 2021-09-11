@@ -11,6 +11,9 @@ function Navigation() {
           <li>
             <Link href="/blog">Blog</Link>
           </li>
+          <li>
+            <Link href="/endorse-me">Endorse Me</Link>
+          </li>
         </ul>
       </nav>
     </header>
