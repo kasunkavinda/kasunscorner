@@ -20,8 +20,8 @@ a {
 @tailwind utilities;
 
 body {
-  color: #2a2a2a;
-  background-color: white;
+  color: white;
+  background-color: #2a2a2a;
   font-family: Consolas, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -29,4 +29,12 @@ body {
 a {
   color: #e8a6a7;
   text-decoration: none;
+}
+
+.font-grey {
+  color: #2a2a2a;
+}
+
+.font-pink {
+  color: #e8a6a7;
 }
