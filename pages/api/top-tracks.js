@@ -15,6 +15,6 @@ export default async (_, res) => {
     "Cache-Control",
     "public, s-maxage=86400, stale-while-revalidate=43200"
   );
-  //   console.log(`kasun ${track.name}`);
+
   return res.status(200).json({ tracks });
 };

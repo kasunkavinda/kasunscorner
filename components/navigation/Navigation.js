@@ -5,6 +5,11 @@ function Navigation() {
     <header>
       <nav className={classes.nav}>
         <ul className={classes.navul}>
+          <li className="my-3">
+            <Link href="/">
+              <a className="text-white">Kasun Kavinda</a>
+            </Link>
+          </li>
           <li>
             <Link href="/contact">Contact Me</Link>
           </li>

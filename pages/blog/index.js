@@ -1,98 +1,64 @@
-import { useRef } from "react";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import Image from "next/image";
+import Link from "next/link";
 
-async function submitHandlerApi(enteredBlogData) {
-  const response = await fetch("/api/blog-list", {
-    method: "POST",
-    body: JSON.stringify(enteredBlogData),
-    headers: {
-      "Content-Type": "application/json",
-    },
+export async function getStaticProps() {
+  //get files from posts directory
+  const files = fs.readdirSync(path.join("posts"));
+
+  //get slug and front matter from post
+  const posts = files.map((filename) => {
+    const slug = filename.replace(".md", "");
+
+    //get frontmatter
+    const markdownWithMeta = fs.readFileSync(
+      path.join("posts", filename),
+      "utf-8"
+    );
+
+    const { data: frontmatter } = matter(markdownWithMeta);
+
+    return {
+      slug,
+      frontmatter,
+    };
   });
-  console.log(enteredBlogData);
-  const data = await response.json();
-  console.log(data);
+
+  return {
+    props: {
+      posts: posts,
+    },
+  };
 }
 
-function Blog() {
-  const blogTitleInputref = useRef();
-  const blogDetailsInputref = useRef();
-
-  function submitHandler(event) {
-    event.preventDefault();
-
-    const blogTitleInput = blogTitleInputref.current.value;
-    const blogDetailsInput = blogDetailsInputref.current.value;
-
-    const blogData = {
-      name: blogTitleInput,
-      email: blogDetailsInput,
-    };
-
-    submitHandlerApi(blogData);
-  }
+export default function Blog({ posts }) {
   return (
     <>
-      <div className="hidden sm:block" aria-hidden="true">
-        <div className="py-5">
-          <div className="border-t border-gray-200" />
-        </div>
-      </div>
-
-      <div className="mt-10 sm:mt-0">
-        <div className="md:grid md:grid-cols-1 md:gap-6">
-          <div className="mt-5 md:mt-0 md:col-span-2">
-            <form onSubmit={submitHandler}>
-              <div className="shadow overflow-hidden sm:rounded-md">
-                <div className="px-4 py-5 bg-white sm:p-6">
-                  <div className="grid grid-cols-6 gap-6">
-                    <div className="col-span-6 sm:col-span-3">
-                      <label
-                        htmlFor="blogTitleInputref"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Blog Title
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        id="blogTitleInputref"
-                        ref={blogTitleInputref}
-                        className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                    <div className="col-span-6 sm:col-span-3">
-                      <label
-                        htmlFor="blogDetailsInputref"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Blog Detaills
-                      </label>
-                      <textarea
-                        id="blogDetailsInputref"
-                        name="blogDetailsInputref"
-                        rows={25}
-                        ref={blogDetailsInputref}
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                        defaultValue={""}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button
-                    type="submit"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    Save
-                  </button>
-                </div>
+      <div className="container mx-auto">
+        <div className="grid justify-items-center">
+          {posts.map((post, index) => (
+            <div key={index} className="my-6">
+              <h1 className="text-5xl">{post.frontmatter.title}</h1>
+              <small>{post.frontmatter.date}</small>
+              <div style={{ width: "48rem" }}>
+                <Image
+                  src={post.frontmatter.cover_image}
+                  alt="image1"
+                  width={2400}
+                  height={1598}
+                  layout="responsive"
+                ></Image>
               </div>
-            </form>
-          </div>
+              <p className="my-2">{post.frontmatter.excerpt}</p>
+              <Link href={`/single-blog/${post.slug}`}>
+                <a className="bg-green-400 p-2 text-white rounded">Read More</a>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </>
   );
 }
-
-export default Blog;

@@ -1,7 +1,8 @@
-.navul{
-    list-style-type: none;
+.navul {
+  list-style-type: none;
 }
 
-.nav{
-    text-align: right;
+.nav {
+  text-align: right;
+  padding: 20px;
 }
