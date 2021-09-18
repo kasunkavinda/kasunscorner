@@ -1,16 +1,16 @@
 //POST api/contact-me
 import { MongoClient } from "mongodb";
 
+const database_url = process.env.DATABBASE_URL;
+
 async function handler(req, res) {
   if (req.method === "POST") {
     const data = req.body;
 
-    const client = await MongoClient.connect(
-      "mongodb+srv://kasunkavinda:kasunkavinda123456@cluster0.oxj4i.mongodb.net/myPortfolio?retryWrites=true&w=majority"
-    );
+    const client = await MongoClient.connect(database_url);
 
     const db = client.db();
-    const contactCollection = db.collection("myPortfolio");
+    const contactCollection = db.collection("ContactMe");
     const result = await contactCollection.insertOne(data);
     console.log(result);
     client.close();

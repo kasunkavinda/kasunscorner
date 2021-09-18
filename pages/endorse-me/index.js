@@ -1,46 +1,19 @@
 import { useRef } from "react";
-import { MongoClient } from "mongodb";
 import { FaLinkedinIn } from "react-icons/fa";
+import useSWR from "swr";
+import fetcher from "../../lib/fetcher";
+import prisma from "../../prisma";
 
 const database_url = process.env.DATABBASE_URL;
 
-async function submitHandlerApi(endorsementData) {
-  const response = await fetch("/api/endorse-me", {
-    method: "POST",
-    body: JSON.stringify(endorsementData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  console.log(endorsementData);
-  const data = await response.json();
-  console.log(data);
-}
-
 export async function getStaticProps() {
-  const client = await MongoClient.connect(database_url);
-
-  const db = client.db();
-  const myEndorsementDetailsCollection = db.collection("myEndorsementDetails");
-  const myEndorsementDetails = await myEndorsementDetailsCollection
-    .find()
-    .toArray();
-  client.close();
-
+  const posts = await prisma.post.findMany();
   return {
     props: {
-      myEndorsementDetails: myEndorsementDetails.map((myEndorsementDetail) => ({
-        name: myEndorsementDetail.name,
-        job: myEndorsementDetail.job,
-        feedback: myEndorsementDetail.feedback,
-        gitlink: myEndorsementDetail.gitlink,
-        id: myEndorsementDetail._id.toString(),
-      })),
+      myEndorsementDetails: posts,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
-
-  console.log(name);
 }
 
 function EndorseMe({ myEndorsementDetails }) {
@@ -48,7 +21,9 @@ function EndorseMe({ myEndorsementDetails }) {
   const jobInputref = useRef();
   const feedbackInputref = useRef();
   const gitInputref = useRef();
-
+  const { data, mutate } = useSWR("/api/endorse-me", fetcher, {
+    fallbackData: myEndorsementDetails,
+  });
   function submitHandler(event) {
     event.preventDefault();
 
@@ -64,6 +39,20 @@ function EndorseMe({ myEndorsementDetails }) {
       gitlink: gitInput,
     };
 
+    async function submitHandlerApi(endorsementData) {
+      const response = await fetch("/api/endorse-me", {
+        method: "POST",
+        body: JSON.stringify(endorsementData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      mutate();
+    }
+
     submitHandlerApi(endorsementData);
   }
 
@@ -71,7 +60,7 @@ function EndorseMe({ myEndorsementDetails }) {
     <>
       <div className="container mx-auto px-4">
         <div className="flex flex-row justify-evenly flex-wrap grid grid-cols-3 items-start my-6">
-          {myEndorsementDetails.map((myEndorsementDetail) => (
+          {data.map((myEndorsementDetail) => (
             <div
               className="flex-1 bg-green-400 font-grey justify-evenly mx-4 my-4 text-center rounded p-6"
               key={myEndorsementDetail.id}
@@ -91,7 +80,7 @@ function EndorseMe({ myEndorsementDetails }) {
           ))}
         </div>
 
-        <div className="flex flex-row my-6">
+        <div className="flex justify-center my-6">
           <form className="pt-6 pb-8 mx-4" onSubmit={submitHandler}>
             <div className="mb-4">
               <label
@@ -147,13 +136,13 @@ function EndorseMe({ myEndorsementDetails }) {
                 className="block font-pink text-sm font-bold mb-2"
                 htmlFor="gitlink"
               >
-                GiHub Link
+                Linkedin Profile
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="gitlink"
                 type="text"
-                placeholder="GiHub Link"
+                placeholder="Linkedin Profile"
                 ref={gitInputref}
               />
             </div>
