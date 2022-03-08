@@ -6,3 +6,11 @@
   text-align: right;
   padding: 20px;
 }
+
+.navlink a:hover,
+.navlink a:active,
+.navlink a:focus {
+  color: #68d391 !important;
+}
+
+/* bg-green-400 */

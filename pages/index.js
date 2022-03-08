@@ -7,15 +7,14 @@ import Spotifybox from "../components/spotifybox/Spotifybox";
 
 export default function Home() {
   return (
-    <>
+    <div className="px-4">
       <Header />
       <div className="flex justify-start ...">
-      <Skillbox/>
+        <Skillbox />
       </div>
       <div className="flex justify-end ...">
-        <Spotifybox/>
+        <Spotifybox />
       </div>
-      
-    </>
+    </div>
   );
 }

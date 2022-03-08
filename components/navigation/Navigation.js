@@ -10,13 +10,13 @@ function Navigation() {
               <a className="text-white">Kasun Kavinda</a>
             </Link>
           </li>
-          <li>
+          <li className={classes.navlink}>
             <Link href="/contact">Contact Me</Link>
           </li>
-          <li>
+          <li className={classes.navlink}>
             <Link href="/blog">Blog</Link>
           </li>
-          <li>
+          <li className={classes.navlink}>
             <Link href="/endorse-me">Endorse Me</Link>
           </li>
         </ul>
