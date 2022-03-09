@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <div className="px-4">
       <Header />
-      <div className="flex justify-start ...">
+      <div className="mt-12 sm:w-1/2 md:w-1/4 m-auto">
         <Skillbox />
       </div>
-      <div className="flex justify-end ...">
+      <div className="">
         <Spotifybox />
       </div>
     </div>
