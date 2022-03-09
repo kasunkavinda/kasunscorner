@@ -6,49 +6,67 @@ function Skillbox() {
       <div className={`relative pt-1 border ${classses.skillboxx}`}>
         <div>
           <div>
-            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+              NextJS
+            </span>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="bg-blue-600 h-2.5 rounded-full w-3/4"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+              ReactJS
+            </span>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="bg-blue-600 h-2.5 rounded-full w-3/4"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+              Angular
+            </span>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="bg-blue-600 h-2.5 rounded-full w-3/5"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+              Typescript
+            </span>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="bg-blue-600 h-2.5 rounded-full w-3/5"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+              NodeJS
+            </span>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="bg-blue-600 h-2.5 rounded-full w-2/4"></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
               User Experience Design
             </span>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-              NextJs
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-              React Js
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-              Tailwind CSS
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-              HTML/cSS
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
-              WordPress & Woocommerce
-            </span>
+            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="bg-blue-600 h-2.5 rounded-full w-3/4"></div>
+            </div>
           </div>
         </div>
       </div>

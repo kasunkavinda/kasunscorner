@@ -18,8 +18,8 @@ function Header() {
           always more of a hobby than a career focus.
           <br />
           I’m familiar with a variety of programming languages and frameworks
-          including <br />
-          JavaScript, Angular, React, Next, NodeJs <br />
+          based on <br />
+          JavaScript. <br />
           but I’m always adding new skills to my repertoire. <br />
         </p>
       </div>
