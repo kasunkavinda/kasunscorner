@@ -20,6 +20,13 @@
   z-index: -1;
 }
 
+@media (max-width: 640px) {
+  .triangle {
+    border-bottom: 200px solid transparent;
+    border-left: 200px solid #e8a6a7;
+  }
+}
+
 @media (max-width: 1024px) {
   .header1 h1 {
     font-size: 60px;

@@ -1,11 +1,11 @@
-.spotifybox{
-    border-color: #E8A6A7;
-    border-width: 1px;
-    padding: 20px;
+.spotifybox {
+  border-color: #e8a6a7;
+  border-width: 1px;
+  padding: 20px;
 }
 
-.spotifyboxheader{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    font-weight: 500;
+.spotifyboxheader {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  font-weight: 500;
 }

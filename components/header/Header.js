@@ -20,7 +20,7 @@ function Header() {
           I’m familiar with a variety of programming languages and frameworks
           based on <br />
           JavaScript. <br />
-          but I’m always adding new skills to my repertoire. <br />
+          But I’m always adding new skills to my repertoire. <br />
         </p>
       </div>
     </div>
