@@ -12,7 +12,7 @@ export default function Home() {
       <div className="mt-12 sm:w-1/2 md:w-1/4 m-auto">
         <Skillbox />
       </div>
-      <div className="">
+      <div className="my-12 md:w-1/2 m-auto">
         <Spotifybox />
       </div>
     </div>

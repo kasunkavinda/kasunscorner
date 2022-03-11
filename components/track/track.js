@@ -2,32 +2,30 @@ import Image from "next/image";
 
 export default function Track(track) {
   return (
-    <div className="flex flex-row items-baseline border-b border-gray-100 dark:border-gray-800 max-w-3xl w-full mt-8">
-      <p className="text-sm font-bold text-gray-400 dark:text-gray-600">
+    <div className="items-baseline md:w-1/4 text-center">
+      {/* <p className="text-sm font-bold text-gray-400 dark:text-gray-600">
         {track.ranking}
-      </p>
-      <Image
-        src={track.albumImage}
-        width={100}
-        height={100}
-        alt={track.album}
-        title={track.album}
-      />
-      <div className="flex flex-col pl-3">
+      </p> */}
+
+      <div className="pl-3">
         <a
-          className="font-medium text-gray-900 dark:text-gray-100 truncate w-60 sm:w-96 md:w-full"
+          className="font-medium text-white font-weight: 800 text-lg "
           href={track.songUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
+          <div>
+            <Image
+              src={track.albumImage}
+              width={100}
+              height={100}
+              alt={track.album}
+              title={track.album}
+            />
+          </div>
           {track.title}
         </a>
-        <p
-          className="text-gray-500 mb-4 truncate w-60 sm:w-96 md:w-full"
-          color="gray.500"
-        >
-          {track.artist}
-        </p>
+        <p className="text-white mb-4 text-xs">{track.artist}</p>
       </div>
     </div>
   );
