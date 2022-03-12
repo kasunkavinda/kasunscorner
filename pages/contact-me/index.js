@@ -4,7 +4,7 @@ import Image from "next/image";
 import contactMe from "../../public/images/contact-me/contact-me.jpg";
 
 async function submitHandlerApi(enteredContactData) {
-  const response = await fetch("/api/contact-me", {
+  const response = await fetch("/api/contact", {
     method: "POST",
     body: JSON.stringify(enteredContactData),
     headers: {
@@ -14,7 +14,7 @@ async function submitHandlerApi(enteredContactData) {
     },
   });
 
-  // const data = response.json();
+  const data = response.json();
   toast.success("Successfully submitted");
 }
 
