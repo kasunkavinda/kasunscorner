@@ -31,11 +31,25 @@ function Contact(props) {
 
   return (
     <>
-      <div className="flex justify-center my-6">
-        <h1 className="text-4xl font-extrabold">Say Hello!</h1>
-      </div>
-      <div className="grid grid-cols-2 place-content-center">
-        <div className="grid-cols">
+      <div className="mb-4">
+        <div className="text-center my-6">
+          <h1 className="text-4xl font-extrabold">Say Hello!</h1>
+        </div>
+        <div className="m-auto" style={{ width: "20rem" }}>
+          <Image src={contactMe} placeholder="blur" alt="image1" />
+        </div>
+        <div className="sm:w-3/4 m-auto">
+          <p className="text-center px-4">
+            I thrive on learning new things. I enjoy exploring new paths to
+            familiar places. I really love coding and photography. Outside of
+            work, my mission is to collect pictureous snaps as many as possible.
+            I also really enjoy exploring the amazing trails and landscapes
+            around the area where i live. I’ve travelled a lot and enjoy seeing
+            things from a fresh perspective. When this whole internet thing goes
+            out of style, i will probably open a art gallery. who knows :)
+          </p>
+        </div>
+        <div className="sm:w-1/2 m-auto mt-12">
           <form className="pb-8 mx-4" onSubmit={formik.handleSubmit}>
             <div className="mb-4">
               <label
@@ -89,7 +103,7 @@ function Contact(props) {
                 value={formik.values.message}
               />
             </div>
-            <div className="flex items-center justify-between">
+            <div className="text-center">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
@@ -98,24 +112,6 @@ function Contact(props) {
               </button>
             </div>
           </form>
-        </div>
-        <div className="grid-cols mt-6">
-          <div className="grid-cols" style={{ width: "20rem" }}>
-            <Image src={contactMe} placeholder="blur" alt="image1" />
-          </div>
-          <div className="grid-cols">
-            <p className="break-words">
-              Care about the details and consider the motion design of
-              affordances to be crucial in creating effective, intuitive
-              interfaces. I consider prototyping to be my weapon of choice in
-              thinking through interaction models and new possibilities. I
-              thrive on learning new things — I enjoy exploring new paths to
-              familiar places. I really love snowboarding (I like both park and
-              powder days). I also really enjoy exploring the amazing trails and
-              landscapes around the bay area on my mountain bike. I’ve travelled
-              a lot and enjoy seeing things from a fresh perspective :)
-            </p>
-          </div>
         </div>
       </div>
     </>
