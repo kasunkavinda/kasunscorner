@@ -1,7 +1,10 @@
 .spotifybox {
   border-color: #e8a6a7;
   border-width: 1px;
-  padding: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
 }
 
 .spotifyboxheader {

@@ -54,12 +54,16 @@ function EndorseMe({ myEndorsementDetails }) {
     }
 
     submitHandlerApi(endorsementData);
+    nameInputref.current.value = "";
+    jobInputref.current.value = "";
+    feedbackInputref.current.value = "";
+    gitInputref.current.value = "";
   }
 
   return (
     <>
       <div className="container mx-auto px-4">
-        <div className="flex flex-row justify-evenly flex-wrap grid grid-cols-3 items-start my-6">
+        <div className="flex flex-row justify-evenly flex-wrap grid sm:grid-cols-3 items-start my-6">
           {data.map((myEndorsementDetail) => (
             <div
               className="flex-1 bg-green-400 font-grey justify-evenly mx-4 my-4 text-center rounded p-6"
@@ -72,7 +76,12 @@ function EndorseMe({ myEndorsementDetails }) {
               </p>
 
               <div className="text-center">
-                <a href={myEndorsementDetail.gitlink} className="text-white">
+                <a
+                  href={myEndorsementDetail.gitlink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
                   <FaLinkedinIn />
                 </a>
               </div>

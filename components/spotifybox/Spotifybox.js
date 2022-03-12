@@ -7,7 +7,7 @@ function Spotifybox() {
       <h1 className={`${classes.spotifyboxheader} text-center`}>
         Peek of what I hear
       </h1>
-      <p className="text-center">- Update daily -</p>
+      <p className="text-center">- Automatically updates daily -</p>
       <div
         className={`border sm:flex justify-center ..." ${classes.spotifybox}`}
       >
