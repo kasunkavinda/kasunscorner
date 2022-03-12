@@ -9,10 +9,12 @@ async function submitHandlerApi(enteredContactData) {
     body: JSON.stringify(enteredContactData),
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
     },
   });
 
-  const data = await response.json();
+  // const data = response.json();
   toast.success("Successfully submitted");
 }
 
