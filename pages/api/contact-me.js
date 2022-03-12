@@ -12,7 +12,6 @@ async function handler(req, res) {
     const db = client.db();
     const contactCollection = db.collection("ContactMe");
     const result = await contactCollection.insertOne(data);
-    console.log(result);
     client.close();
     res.status(201).json({ message: "Contact Record Inserted" });
   }

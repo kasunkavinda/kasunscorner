@@ -3,6 +3,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import useSWR from "swr";
 import fetcher from "../../lib/fetcher";
 import prisma from "../../prisma";
+import toast, { Toaster } from "react-hot-toast";
 
 const database_url = process.env.DATABBASE_URL;
 
@@ -58,11 +59,15 @@ function EndorseMe({ myEndorsementDetails }) {
     jobInputref.current.value = "";
     feedbackInputref.current.value = "";
     gitInputref.current.value = "";
+    toast.success("Successfully submitted");
   }
 
   return (
     <>
       <div className="container mx-auto px-4">
+        <h1 className="text-center text-lg">
+          Are you happy with my programming work?
+        </h1>
         <div className="flex flex-row justify-evenly flex-wrap grid sm:grid-cols-3 items-start my-6">
           {data.map((myEndorsementDetail) => (
             <div
@@ -155,7 +160,7 @@ function EndorseMe({ myEndorsementDetails }) {
                 ref={gitInputref}
               />
             </div>
-            <div className="flex items-center justify-between">
+            <div className="text-center mt-12">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"

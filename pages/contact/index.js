@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
 import contactMe from "../../public/images/contact-me/contact-me.jpg";
 
@@ -12,12 +13,13 @@ async function submitHandlerApi(enteredContactData) {
   });
 
   const data = await response.json();
+  toast.success("Successfully submitted");
 }
 
 function Contact(props) {
   const formik = useFormik({
     initialValues: { name: "", email: "", message: "" },
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       console.log(values.name);
 
       const contactData = {
@@ -26,6 +28,7 @@ function Contact(props) {
         country: values.message,
       };
       submitHandlerApi(contactData);
+      resetForm({});
     },
   });
 
