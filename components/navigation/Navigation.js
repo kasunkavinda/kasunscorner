@@ -11,7 +11,7 @@ function Navigation() {
             </Link>
           </li>
           <li className={classes.navlink}>
-            <Link href="/contact">Contact Me</Link>
+            <Link href="/contact-me">Contact Me</Link>
           </li>
           <li className={classes.navlink}>
             <Link href="/blog">Blog</Link>
