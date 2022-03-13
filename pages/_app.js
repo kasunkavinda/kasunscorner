@@ -6,12 +6,12 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <Layout>
-      <SessionProvider session={session}>
+    <SessionProvider session={session}>
+      <Layout>
         <Component {...pageProps} />
         <Toaster position="top-right" />
-      </SessionProvider>
-    </Layout>
+      </Layout>
+    </SessionProvider>
   );
 }
 
