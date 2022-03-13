@@ -39,7 +39,7 @@ a {
   color: #e8a6a7;
 }
 
-/* scrollbar css */
+/* scrollbar css start*/
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -61,4 +61,4 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #e8a6a7;
 }
-/* scrollbar css */
+/* scrollbar css end */
