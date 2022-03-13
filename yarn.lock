@@ -133,11 +133,6 @@
   resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
   integrity sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA==
 
-"@next-auth/prisma-adapter@^0.5.2-next.10":
-  version "0.5.2-next.10"
-  resolved "https://registry.yarnpkg.com/@next-auth/prisma-adapter/-/prisma-adapter-0.5.2-next.10.tgz#f75b3ae33857f3f141a6fc3b35677b7777aa8a6a"
-  integrity sha512-52QdFJiEm7P1EqYATUrJSy/IILQi9W1DiR4w4DWRm4CzSPWREJUuYKwygBKB97+46BvW29yhibMZAUceCMHsyA==
-
 "@next/env@11.1.2":
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-11.1.2.tgz#27996efbbc54c5f949f5e8c0a156e3aa48369b99"
