@@ -49,9 +49,9 @@ function Contact(props) {
             familiar places. I really love coding and photography. Outside of
             work, my mission is to collect pictureous snaps as many as possible.
             I also really enjoy exploring the amazing trails and landscapes
-            around the area where i live. I’ve travelled a lot and enjoy seeing
+            around the area where I live. I’ve travelled a lot and enjoy seeing
             things from a fresh perspective. When this whole internet thing goes
-            out of style, i will probably open a art gallery. who knows :)
+            out of style, I will probably open a art gallery. Who knows :)
           </p>
         </div>
         <div className="sm:w-1/2 m-auto mt-12">
