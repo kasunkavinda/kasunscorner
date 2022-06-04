@@ -19,7 +19,7 @@ export async function getStaticProps() {
 }
 
 function EndorseMe({ myEndorsementDetails }) {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
   const nameInputref = useRef();
   const jobInputref = useRef();
   const feedbackInputref = useRef();
@@ -95,8 +95,7 @@ function EndorseMe({ myEndorsementDetails }) {
             </div>
           ))}
         </div>
-        {/* {session && ( */}
-        {true && (
+        {session && (
           <div className="sm: w-1/2 m-auto my-6">
             <div className="sm:mx-4 mb-4 text-center">
               <span className="mr-4">
@@ -187,8 +186,7 @@ function EndorseMe({ myEndorsementDetails }) {
             </div>
           </div>
         )}
-        {/* {!session && ( */}
-        {!true && (
+        {!session && (
           <div className="sm:mx-4 mb-4">
             <div className="">
               <span className="mr-4">Sign into endorse me</span>
