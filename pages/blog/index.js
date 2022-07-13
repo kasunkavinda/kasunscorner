@@ -42,7 +42,7 @@ export default function Blog({ posts }) {
             <div key={index} className="my-6">
               <h1 className="text-5xl">{post.frontmatter.title}</h1>
               <small>{post.frontmatter.date}</small>
-              <div style={{ width: "48rem" }}>
+              <div style={{  }}>
                 <Image
                   src={post.frontmatter.cover_image}
                   alt="image1"
