@@ -45,9 +45,9 @@ export default function PostPage({
             <Link href="/blog">
               <a className="bg-green-400 p-2 text-white rounded">Go Back</a>
             </Link>
-            <h1 className="text-5xl">{title}</h1>
+            <h1 className="text-5xl pt-4">{title}</h1>
             <small>{date}</small>
-            <div style={{ width: "48rem" }}>
+            <div style={{ }}>
               <Image
                 src={cover_image}
                 alt="image1"
