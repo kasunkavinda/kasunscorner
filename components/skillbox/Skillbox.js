@@ -26,9 +26,9 @@ function Skillbox() {
   const [progress2, setProgress2] = React.useState(13);
   React.useEffect(() => setTimeout(() => setProgress2(80), 500), []);
   const [progress3, setProgress3] = React.useState(13);
-  React.useEffect(() => setTimeout(() => setProgress3(60), 500), []);
+  React.useEffect(() => setTimeout(() => setProgress3(70), 500), []);
   const [progress4, setProgress4] = React.useState(13);
-  React.useEffect(() => setTimeout(() => setProgress4(70), 500), []);
+  React.useEffect(() => setTimeout(() => setProgress4(90), 500), []);
   const [progress5, setProgress5] = React.useState(13);
   React.useEffect(() => setTimeout(() => setProgress5(50), 500), []);
   const [progress6, setProgress6] = React.useState(13);
@@ -63,32 +63,10 @@ function Skillbox() {
         <div>
           <div>
             <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
-              Angular
-            </span>
-            <Progress value={60}>
-              <ProgressIndicator style={{ width: `${progress3}%` }} />
-            </Progress>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
               Typescript
             </span>
             <Progress value={70}>
-              <ProgressIndicator style={{ width: `${progress4}%` }} />
-            </Progress>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
-              NodeJS
-            </span>
-            <Progress value={50}>
-              <ProgressIndicator style={{ width: `${progress5}%` }} />
+              <ProgressIndicator style={{ width: `${progress3}%` }} />
             </Progress>
           </div>
         </div>
@@ -98,12 +76,24 @@ function Skillbox() {
             <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
               User Experience Design
             </span>
-            <Progress value={80}>
-              <ProgressIndicator style={{ width: `${progress6}%` }} />
+            <Progress value={90}>
+              <ProgressIndicator style={{ width: `${progress4}%` }} />
+            </Progress>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+              .Net Core
+            </span>
+            <Progress value={50}>
+              <ProgressIndicator style={{ width: `${progress5}%` }} />
             </Progress>
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

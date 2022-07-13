@@ -9,20 +9,19 @@ async function submitHandlerApi(enteredContactData) {
     body: JSON.stringify(enteredContactData),
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Credentials": true,
     },
   });
 
-  const data = response.json();
+  const data = await response.json();
+
   toast.success("Successfully submitted");
 }
+
 
 function Contact(props) {
   const formik = useFormik({
     initialValues: { name: "", email: "", message: "" },
     onSubmit: (values, { resetForm }) => {
-      console.log(values.name);
 
       const contactData = {
         name: values.name,
