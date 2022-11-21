@@ -96,7 +96,7 @@ function EndorseMe({ myEndorsementDetails }) {
           ))}
         </div>
         {/* {session && ( */}
-        {true && (
+        {false && (
           <div className="sm: w-1/2 m-auto my-6">
             <div className="sm:mx-4 mb-4 text-center">
               <span className="mr-4">
@@ -188,7 +188,7 @@ function EndorseMe({ myEndorsementDetails }) {
           </div>
         )}
         {/* {!session && ( */}
-        {!true && (  
+       {!true && (  
           <div className="sm:mx-4 mb-4">
             <div className="">
               <span className="mr-4">Sign into endorse me</span>

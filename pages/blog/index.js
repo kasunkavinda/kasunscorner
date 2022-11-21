@@ -52,8 +52,8 @@ export default function Blog({ posts }) {
                 ></Image>
               </div>
               <p className="my-2">{post.frontmatter.excerpt}</p>
-              <Link href={`/single-blog/${post.slug}`}>
-                <a className="bg-green-400 p-2 text-white rounded">Read More</a>
+              <Link href={`/single-blog/${post.slug}`} className="bg-green-400 p-2 text-white rounded">
+                Read More
               </Link>
             </div>
           ))}
