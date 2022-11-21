@@ -6,8 +6,8 @@ function Navigation() {
       <nav className={classes.nav}>
         <ul className={classes.navul}>
           <li className="my-3">
-            <Link href="/">
-              <a className="text-white">Kasun Kavinda</a>
+            <Link href="/" className="text-white">
+              Kasun Kavinda
             </Link>
           </li>
           <li className={classes.navlink}>

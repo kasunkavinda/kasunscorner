@@ -42,8 +42,8 @@ export default function PostPage({
       <div className="container mx-auto">
         <div className="grid justify-items-center">
           <div className="my-6">
-            <Link href="/blog">
-              <a className="bg-green-400 p-2 text-white rounded">Go Back</a>
+            <Link href="/blog" className="bg-green-400 p-2 text-white rounded">
+              Go Back
             </Link>
             <h1 className="text-5xl pt-4">{title}</h1>
             <small>{date}</small>
