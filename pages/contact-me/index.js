@@ -14,7 +14,7 @@ async function submitHandlerApi(enteredContactData) {
 
   const data = await response.json();
 
-  toast.success("Successfully submitted");
+  toast.success("Successfully submitted.");
 }
 
 
