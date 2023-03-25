@@ -18,7 +18,6 @@ async function handler(req, res) {
     res
       .status(201)
       .json({ code: "SUCCESS", message: "Contact Record Inserted" });
-    res.status(404).json({ code: "ERROR", message: "Error" });
   }
 }
 
