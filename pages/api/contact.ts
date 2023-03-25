@@ -4,18 +4,21 @@ import { MongoClient } from "mongodb";
 const database_url = process.env.DATABASE_URL;
 
 async function handler(req, res) {
-  console.log('contactCollection', req.method);
+  console.log("contactCollection", req.method);
   if (req.method === "POST") {
     const data = req.body;
-    
     const client = await MongoClient.connect(database_url);
-    console.log('data', data)
+    console.log("data", data);
     const db = client.db();
     const contactCollection = db.collection("ContactMe");
-    
+
     const result = await contactCollection.insertOne(data);
+    console.log("inside handler");
     client.close();
-    res.status(201).json({ message: "Contact Record Inserted" });
+    res
+      .status(201)
+      .json({ code: "SUCCESS", message: "Contact Record Inserted" });
+    res.status(404).json({ code: "ERROR", message: "Error" });
   }
 }
 

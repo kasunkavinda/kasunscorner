@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useFormik } from "formik";
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
@@ -12,24 +13,38 @@ async function submitHandlerApi(enteredContactData) {
     },
   });
 
-  const data = await response.json();
 
-  toast.success("Successfully submitted");
+  const data = await response.json();
+  console.log('data', data.code)
+
+  return data.code;
+
 }
 
 
 function Contact(props) {
+  const [disableSubmit, setDisableSubmit] = useState(false);
   const formik = useFormik({
     initialValues: { name: "", email: "", message: "" },
-    onSubmit: (values, { resetForm }) => {
-
+    onSubmit: async (values, { resetForm }) => {
+      setDisableSubmit(true)
       const contactData = {
         name: values.name,
         email: values.email,
-        country: values.message,
+        message: values.message,
       };
-      submitHandlerApi(contactData);
-      resetForm({});
+
+      const res = await submitHandlerApi(contactData);
+      if (res === "SUCCESS") {
+        toast.success("Successfully submitted");
+        resetForm({});
+        setDisableSubmit(false)
+      }
+      if (res === "ERROR") {
+        toast.success("Error");
+        resetForm({});
+        setDisableSubmit(false)
+      }
     },
   });
 
@@ -69,6 +84,7 @@ function Contact(props) {
                 placeholder="Name"
                 onChange={formik.handleChange}
                 value={formik.values.name}
+                required
               />
             </div>
             <div className="mb-4">
@@ -85,6 +101,7 @@ function Contact(props) {
                 placeholder="Email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
+                required
               />
             </div>
             <div className="mb-4">
@@ -105,11 +122,13 @@ function Contact(props) {
                 maxLength="300"
                 onChange={formik.handleChange}
                 value={formik.values.message}
+                required
               />
             </div>
             <div className="text-center">
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                disabled={disableSubmit}
+                className="bg-blue-500 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Send Message
