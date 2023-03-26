@@ -3,8 +3,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import useSWR from "swr";
 import fetcher from "../../lib/fetcher";
 import prisma from "../../prisma";
-import toast, { Toaster } from "react-hot-toast";
-import { useSession, signIn, signOut } from "next-auth/react";
+import toast from "react-hot-toast";
 
 const database_url = process.env.DATABBASE_URL;
 
@@ -19,7 +18,6 @@ export async function getStaticProps() {
 }
 
 function EndorseMe({ myEndorsementDetails }) {
-  // const { data: session } = useSession();
   const nameInputref = useRef();
   const jobInputref = useRef();
   const feedbackInputref = useRef();
@@ -70,7 +68,7 @@ function EndorseMe({ myEndorsementDetails }) {
         <h1 className="text-center text-lg">
           Are you happy with my programming work?
         </h1>
-        <div className="flex flex-row justify-evenly flex-wrap grid sm:grid-cols-3 items-start my-6">
+        <div className="grid sm:grid-cols-3 items-start my-6">
           {data.map((myEndorsementDetail) => (
             <div
               className="flex-1 bg-green-400 font-grey justify-evenly mx-4 my-4 text-center rounded p-6"
@@ -95,112 +93,82 @@ function EndorseMe({ myEndorsementDetails }) {
             </div>
           ))}
         </div>
-        {/* {session && ( */}
-        {true && (
-          <div className="sm: w-1/2 m-auto my-6">
-            <div className="sm:mx-4 mb-4 text-center">
-              <span className="mr-4">
-                {/* You are signed in as {session.user.name} */}
-              </span>
+        <div className="">
+          <form className="pt-6 pb-8 sm:mx-4" onSubmit={submitHandler}>
+            <div className="mb-4">
+              <label
+                className="block font-pink text-sm font-bold mb-2"
+                htmlFor="Name"
+              >
+                Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="Name"
+                type="text"
+                placeholder="Name"
+                ref={nameInputref}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block font-pink text-sm font-bold mb-2"
+                htmlFor="job-title"
+              >
+                Job Title
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="job-title"
+                type="text"
+                placeholder="Job Title"
+                ref={jobInputref}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block font-pink text-sm font-bold mb-2"
+                htmlFor="feedack"
+              >
+                Feedback
+              </label>
+              <textarea
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="feedback"
+                name="feedback"
+                type="textarea"
+                placeholder="Feedback"
+                rows="10"
+                cols="50"
+                maxLength="300"
+                ref={feedbackInputref}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block font-pink text-sm font-bold mb-2"
+                htmlFor="gitlink"
+              >
+                Linkedin Profile
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="gitlink"
+                type="text"
+                placeholder="Linkedin Profile"
+                ref={gitInputref}
+              />
+            </div>
+            <div className="text-center mt-12">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => signOut()}
+                type="submit"
               >
-                Sign out
+                Endorse Kasun
               </button>
             </div>
-            <div className="">
-              <form className="pt-6 pb-8 sm:mx-4" onSubmit={submitHandler}>
-                <div className="mb-4">
-                  <label
-                    className="block font-pink text-sm font-bold mb-2"
-                    htmlFor="Name"
-                  >
-                    Name
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="Name"
-                    type="text"
-                    placeholder="Name"
-                    ref={nameInputref}
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block font-pink text-sm font-bold mb-2"
-                    htmlFor="job-title"
-                  >
-                    Job Title
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="job-title"
-                    type="text"
-                    placeholder="Job Title"
-                    ref={jobInputref}
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block font-pink text-sm font-bold mb-2"
-                    htmlFor="feedack"
-                  >
-                    Feedback
-                  </label>
-                  <textarea
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="feedback"
-                    name="feedback"
-                    type="textarea"
-                    placeholder="Feedback"
-                    rows="10"
-                    cols="50"
-                    maxLength="300"
-                    ref={feedbackInputref}
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block font-pink text-sm font-bold mb-2"
-                    htmlFor="gitlink"
-                  >
-                    Linkedin Profile
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="gitlink"
-                    type="text"
-                    placeholder="Linkedin Profile"
-                    ref={gitInputref}
-                  />
-                </div>
-                <div className="text-center mt-12">
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="submit"
-                  >
-                    Endorse Kasun
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        )}
-        {/* {!session && ( */}
-        {!true && (  
-          <div className="sm:mx-4 mb-4">
-            <div className="">
-              <span className="mr-4">Sign into endorse me</span>
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => signIn()}
-              >
-                Sign in
-              </button>
-            </div>
-          </div>
-        )}
+          </form>
+        </div>
       </div>
     </>
   );
