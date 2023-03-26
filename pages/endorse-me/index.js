@@ -93,81 +93,83 @@ function EndorseMe({ myEndorsementDetails }) {
             </div>
           ))}
         </div>
-        <div className="">
-          <form className="pt-6 pb-8 sm:mx-4" onSubmit={submitHandler}>
-            <div className="mb-4">
-              <label
-                className="block font-pink text-sm font-bold mb-2"
-                htmlFor="Name"
-              >
-                Name
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="Name"
-                type="text"
-                placeholder="Name"
-                ref={nameInputref}
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block font-pink text-sm font-bold mb-2"
-                htmlFor="job-title"
-              >
-                Job Title
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="job-title"
-                type="text"
-                placeholder="Job Title"
-                ref={jobInputref}
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block font-pink text-sm font-bold mb-2"
-                htmlFor="feedack"
-              >
-                Feedback
-              </label>
-              <textarea
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="feedback"
-                name="feedback"
-                type="textarea"
-                placeholder="Feedback"
-                rows="10"
-                cols="50"
-                maxLength="300"
-                ref={feedbackInputref}
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                className="block font-pink text-sm font-bold mb-2"
-                htmlFor="gitlink"
-              >
-                Linkedin Profile
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="gitlink"
-                type="text"
-                placeholder="Linkedin Profile"
-                ref={gitInputref}
-              />
-            </div>
-            <div className="text-center mt-12">
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                Endorse Kasun
-              </button>
-            </div>
-          </form>
+        <div className="sm: w-1/2 m-auto my-6">
+          <div className="">
+            <form className="pt-6 pb-8 sm:mx-4" onSubmit={submitHandler}>
+              <div className="mb-4">
+                <label
+                  className="block font-pink text-sm font-bold mb-2"
+                  htmlFor="Name"
+                >
+                  Name
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="Name"
+                  type="text"
+                  placeholder="Name"
+                  ref={nameInputref}
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block font-pink text-sm font-bold mb-2"
+                  htmlFor="job-title"
+                >
+                  Job Title
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="job-title"
+                  type="text"
+                  placeholder="Job Title"
+                  ref={jobInputref}
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block font-pink text-sm font-bold mb-2"
+                  htmlFor="feedack"
+                >
+                  Feedback
+                </label>
+                <textarea
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="feedback"
+                  name="feedback"
+                  type="textarea"
+                  placeholder="Feedback"
+                  rows="10"
+                  cols="50"
+                  maxLength="300"
+                  ref={feedbackInputref}
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block font-pink text-sm font-bold mb-2"
+                  htmlFor="gitlink"
+                >
+                  Linkedin Profile
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="gitlink"
+                  type="text"
+                  placeholder="Linkedin Profile"
+                  ref={gitInputref}
+                />
+              </div>
+              <div className="text-center mt-12">
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                >
+                  Endorse Kasun
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </>
