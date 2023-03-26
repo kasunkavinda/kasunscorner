@@ -40,7 +40,7 @@ function EndorseMe({ myEndorsementDetails }) {
       gitlink: gitInput,
     };
 
-    async function submitHandlerApi(endorsementData) {
+    async function endorsementSubmitHandlerApi(endorsementData) {
       const response = await fetch("/api/endorse-me", {
         method: "POST",
         body: JSON.stringify(endorsementData),
@@ -54,7 +54,7 @@ function EndorseMe({ myEndorsementDetails }) {
       mutate();
     }
 
-    submitHandlerApi(endorsementData);
+    endorsementSubmitHandlerApi(endorsementData);
     nameInputref.current.value = "";
     jobInputref.current.value = "";
     feedbackInputref.current.value = "";
