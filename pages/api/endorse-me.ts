@@ -1,8 +1,5 @@
-//POST api/endorse-me
 import prisma from "../../prisma";
 import type { NextApiHandler } from "next";
-
-const database_url = process.env.DATABBASE_URL;
 
 const handler: NextApiHandler = async (req, res) => {
   if (req.method === "POST") {

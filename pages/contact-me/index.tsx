@@ -22,7 +22,7 @@ const contactDatasubmitHandlerApi = async (enteredContactData: ContactData) => {
   }
 };
 
-function Contact() {
+const Contact = ()=> {
   const [submitDisabled, setSubmitDisabled] = useState(false);
   const formik = useFormik({
     initialValues: { name: "", email: "", message: "" },
@@ -62,7 +62,7 @@ function Contact() {
           <h1 className="text-4xl font-extrabold">Say Hello!</h1>
         </div>
         <div className="m-auto" style={{ width: "20rem" }}>
-          <Image src={contactMe} placeholder="blur" alt="image1" />
+          <Image src={contactMe} placeholder="blur" alt="My photo" />
         </div>
         <div className="sm:w-3/4 m-auto">
           <p className="text-center px-4">
