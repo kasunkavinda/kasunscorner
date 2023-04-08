@@ -6,7 +6,7 @@ import { EndorsementDataType } from "../interfaces/interfaces";
 // Define a service using a base URL and expected endpoints
 export const endorsementApi = createApi({
   reducerPath: "endorsementApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://kasunscorner.vercel.app" }),
   tagTypes: ["Endorsements"],
   endpoints: (builder) => ({
     getEndorsements: builder.query<EndorsementDataType[], void>({
