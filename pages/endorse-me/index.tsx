@@ -2,7 +2,10 @@ import React, { FormEvent, useState } from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 import prisma from "../../prisma";
 import toast from "react-hot-toast";
-import { useGetEndorsementsQuery } from "../../feautures/endorsementApiSlice";
+import {
+  useGetEndorsementsQuery,
+  useAddEndorsementMutation,
+} from "../../feautures/endorsementApiSlice";
 import Loader from "../../components/loader/Loader";
 import ErrorMsg from "../../components/errorMessage/ErrorMsg";
 import useErrorValidationHook from "../../hooks/useErrorValidationHook";
@@ -15,8 +18,9 @@ const EndorseMe = () => {
   const [linkedin, setLinkedin] = useState("");
 
   const { data: endorsementData, error, isLoading } = useGetEndorsementsQuery();
+  const [createEndorsements] = useAddEndorsementMutation();
 
-  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const isNameValid = useErrorValidationHook(name, "name");
@@ -34,30 +38,16 @@ const EndorseMe = () => {
         gitlink: linkedin,
       };
 
-      const endorsementSubmitHandlerApi = async (endorsementData) => {
-        const response = await fetch("/api/endorse-me", {
-          method: "POST",
-          body: JSON.stringify(endorsementData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => {
-            if (res.status === SUCCESS_CODE) {
-              toast.success("Yahoo🔥successfully submitted!");
-              setName("");
-              setJobTitle("");
-              setFeedback("");
-              setLinkedin("");
-            } else {
-              toast.error("Ouch😖seems there is a issue. Please try again!");
-            }
-          })
-          .catch((error) => {
-            toast.error("Ouch😖seems there is a issue. Please try again!");
-          });
-      };
-      endorsementSubmitHandlerApi(endorsementData);
+      try {
+        await createEndorsements(endorsementData).unwrap();
+        toast.success("Yahoo🔥successfully submitted!");
+        setName("");
+        setJobTitle("");
+        setFeedback("");
+        setLinkedin("");
+      } catch (error) {
+        toast.error("Ouch😖seems there is a issue. Please try again!");
+      }
     }
   };
 
