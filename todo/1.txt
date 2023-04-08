@@ -1,0 +1,2 @@
+
+2) introduce custom hooks to pages
