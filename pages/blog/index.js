@@ -10,7 +10,7 @@ export async function getStaticProps() {
 
   //get slug and front matter from post
   const posts = files.map((filename) => {
-    const slug = filename.replace(".md", "");
+    const slug = filename.replace(".mdx", "");
 
     //get frontmatter
     const markdownWithMeta = fs.readFileSync(
@@ -40,15 +40,16 @@ export default function Blog({ posts }) {
         <div className="grid justify-items-center">
           {posts.map((post, index) => (
             <div key={index} className="my-6">
-              <h1 className="text-5xl">{post.frontmatter.title}</h1>
+              <h1 className="text-3xl">{post.frontmatter.title}</h1>
               <small>{post.frontmatter.date}</small>
-              <div style={{  }}>
+              <div className="max-w-2xl" style={{position:"relative"}}>
                 <Image
                   src={post.frontmatter.cover_image}
-                  alt="image1"
+                  alt="Asynchronous javascript post image"
                   width={2400}
                   height={1598}
-                  layout="responsive"
+                  objectFit="cover"
+                  loading='lazy'
                 ></Image>
               </div>
               <p className="my-2">{post.frontmatter.excerpt}</p>
