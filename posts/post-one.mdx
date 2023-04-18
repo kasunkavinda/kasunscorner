@@ -1,0 +1,134 @@
+---
+title: "Asynchronous Javascript"
+date: "April 11 2023"
+excerpt: "Understanding of Asynchronous Javascript"
+cover_image: "/images/posts/asynchronous_javascript.jpg"
+---
+
+>## **Understanding of Asynchronous Javascript**
+<br/>
+In this article, we will explore the basics of asynchronous programming in JavaScript.
+
+To understand the concept of asynchronous programming, let's start with a simple example. <br/><br/>Consider the following code snippet:
+```tsx
+console.log("Instant Execution")
+```
+
+When we run this code, it immediately outputs "Instant Execution" to the console. However, when we are dealing with APIs or other asynchronous operations, we may need to wait for some time in order to fetch data.
+
+To handle asynchronous operations in JavaScript, we use promises. A promise is an object that represents a value that may not be available yet, but will be resolved in the future.
+
+<br/>Here is an example of creating a promise from scratch:
+
+```tsx {2,4}
+const promise = new Promise((resolve, reject) => {
+  let name = "Kasun"
+  if(name === "Kasun"){
+    resolve();
+  }
+  else{
+    reject();
+  }
+})
+```
+
+Every javascript promise has 3 functions.<br/><br/>
+* then - This will be called when resolved.<br/>
+* catch - This will be called when rejected.<br/>
+* finally - This will be called no matter whether its resolved or not.
+
+<br/>
+
+`promise.then().catch().finally()`
+
+<br/>
+<strong>Bonus Tip</strong><br/>
+<p>We can also pass parameters inside the <code>resolve</code> and <code>reject</code> functions, and access them inside <code>then</code> and <code>catch</code> functions. Here is an example:</p>
+
+```tsx
+const promise = new Promise((resolve, reject) => {
+  name = "Kasun";
+  if (name === "Kasun") {
+    resolve(name);
+  } else {
+    reject("Name was not Kasun. it was " + name);
+  }
+});
+```
+
+For example, let's say name === Kasun. and what should do if thats true. we write that logic inside `then` function.
+
+```tsx
+promise
+  .then((name) => {
+    console.log(name); //Output : Kasun
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(()=>{
+    console.log("Finally will be called") //Output : Finally will be called
+  });
+```
+
+let's say name === John. and what should do if thats true. we write that logic inside `catch` function.
+
+```tsx
+promise
+  .then((name) => {
+    console.log(name);
+  })
+  .catch((error) => {
+    console.log(error); //Output : Name was not Kasun. it was John
+  })
+  .finally(()=>{
+    console.log("Finally will be called") //Output : Finally will be called
+  });
+```
+
+Now let's work with actual API.<br/>
+Let's first check whether we are working with a promise or not!
+
+```tsx
+const data = axios.get('https://jsonplaceholder.typicode.com/todos/1');
+
+console.log(data); // Output: Promise { <pending> }
+```
+
+We can see we are working with promise. let's move on and get the data. 
+
+```tsx
+
+axios.get('https://jsonplaceholder.typicode.com/todos/1')
+  .then( (response)=> {
+    console.log(response); // Most of the API libarys passing response parameters to resolve and reject function by default. 
+  })
+  .catch( (error) =>{
+    console.log(error); // Most of the API libarys passing response parameters to resolve and reject function by default.
+  })
+  .finally( ()=> {
+  });
+
+```
+
+But later, in javascript time line, the above has been done using async, await which is more simpler and cleaner way.
+
+```tsx
+const fetchData = async() => {
+    try {
+        const data = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+    }
+    finally{
+        console.log("Always executing")
+    }
+    
+}
+
+fetchData();
+```
+
+Hope you find this post useful. happy coding 🤠
+
