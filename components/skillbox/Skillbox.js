@@ -26,13 +26,23 @@ function Skillbox() {
   const [progress2, setProgress2] = React.useState(13);
   React.useEffect(() => setTimeout(() => setProgress2(80), 500), []);
   const [progress3, setProgress3] = React.useState(13);
-  React.useEffect(() => setTimeout(() => setProgress3(70), 500), []);
+  React.useEffect(() => setTimeout(() => setProgress3(80), 500), []);
   const [progress4, setProgress4] = React.useState(13);
-  React.useEffect(() => setTimeout(() => setProgress4(90), 500), []);
+  React.useEffect(() => setTimeout(() => setProgress4(70), 500), []);
   const [progress5, setProgress5] = React.useState(13);
-  React.useEffect(() => setTimeout(() => setProgress5(50), 500), []);
+  React.useEffect(() => setTimeout(() => setProgress5(75), 500), []);
   const [progress6, setProgress6] = React.useState(13);
-  React.useEffect(() => setTimeout(() => setProgress6(80), 500), []);
+  React.useEffect(() => setTimeout(() => setProgress6(75), 500), []);
+  const [progress7, setProgress7] = React.useState(13);
+  React.useEffect(() => setTimeout(() => setProgress7(80), 500), []);
+  const [progress8, setProgress8] = React.useState(13);
+  React.useEffect(() => setTimeout(() => setProgress8(80), 500), []);
+  const [progress9, setProgress9] = React.useState(13);
+  React.useEffect(() => setTimeout(() => setProgress9(80), 500), []);
+  const [progress10, setProgress10] = React.useState(13);
+  React.useEffect(() => setTimeout(() => setProgress10(80), 500), []);
+  const [progress11, setProgress11] = React.useState(13);
+  React.useEffect(() => setTimeout(() => setProgress11(80), 500), []);
   return (
     <div>
       <h1 className={classses.skillboxheader}>Skills</h1>
@@ -41,7 +51,7 @@ function Skillbox() {
         <div>
           <div>
             <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
-              NextJS
+              Node.js
             </span>
             <Progress value={80}>
               <ProgressIndicator style={{ width: `${progress1}%` }} />
@@ -52,7 +62,7 @@ function Skillbox() {
         <div>
           <div>
             <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
-              ReactJS
+              Express.js
             </span>
             <Progress value={80}>
               <ProgressIndicator style={{ width: `${progress2}%` }} />
@@ -63,9 +73,9 @@ function Skillbox() {
         <div>
           <div>
             <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
-              Typescript
+              Fastify
             </span>
-            <Progress value={70}>
+            <Progress value={80}>
               <ProgressIndicator style={{ width: `${progress3}%` }} />
             </Progress>
           </div>
@@ -74,9 +84,9 @@ function Skillbox() {
         <div>
           <div>
             <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
-              User Experience Design
+              Nest.js
             </span>
-            <Progress value={90}>
+            <Progress value={70}>
               <ProgressIndicator style={{ width: `${progress4}%` }} />
             </Progress>
           </div>
@@ -85,15 +95,82 @@ function Skillbox() {
         <div>
           <div>
             <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
-              .Net Core
+              Next.js
             </span>
-            <Progress value={50}>
+            <Progress value={75}>
               <ProgressIndicator style={{ width: `${progress5}%` }} />
             </Progress>
           </div>
         </div>
-      </div>
+
+        <div>
+          <div>
+            <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+              React
+            </span>
+            <Progress value={75}>
+              <ProgressIndicator style={{ width: `${progress6}%` }} />
+            </Progress>
+          </div>
+        </div>
       
+
+      <div>
+        <div>
+          <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+            PostgreSQL
+          </span>
+          <Progress value={80}>
+            <ProgressIndicator style={{ width: `${progress7}%` }} />
+          </Progress>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+            MySQL
+          </span>
+          <Progress value={80}>
+            <ProgressIndicator style={{ width: `${progress8}%` }} />
+          </Progress>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+            Typescript
+          </span>
+          <Progress value={80}>
+            <ProgressIndicator style={{ width: `${progress9}%` }} />
+          </Progress>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+            Prisma
+          </span>
+          <Progress value={80}>
+            <ProgressIndicator style={{ width: `${progress10}%` }} />
+          </Progress>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <span className="text-xs font-semibold inline-block py-1 uppercase rounded-full text-teal-600 bg-teal-200">
+            Tailwind CSS
+          </span>
+          <Progress value={80}>
+            <ProgressIndicator style={{ width: `${progress11}%` }} />
+          </Progress>
+        </div>
+      </div>
+
+      </div>
     </div>
   );
 }
